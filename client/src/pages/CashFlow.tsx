@@ -1257,9 +1257,15 @@ export default function CashFlowPage() {
         )}
 
         {selectedNode && (
-          <div ref={txSectionRef} className="mt-6">
+          <section
+            ref={txSectionRef}
+            className="mt-6"
+            aria-labelledby="cash-flow-transactions-heading"
+          >
             <div className="flex items-center justify-between mb-3">
-              <h2 className="text-sm font-semibold text-text">Transactions: {selectedNode.name}</h2>
+              <h2 id="cash-flow-transactions-heading" className="text-sm font-semibold text-text">
+                Transactions: {selectedNode.name}
+              </h2>
               <button
                 onClick={() => setSelectedNode(null)}
                 className="flex items-center gap-1 text-xs text-text-tertiary hover:text-text-secondary cursor-pointer transition-colors"
@@ -1274,7 +1280,7 @@ export default function CashFlowPage() {
                 overlayDetail
               />
             </div>
-          </div>
+          </section>
         )}
       </div>
     </div>

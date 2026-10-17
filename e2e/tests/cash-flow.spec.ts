@@ -23,8 +23,7 @@ test('Cash Flow clicks scope transactions to the category, group and chart range
   await open(page, '/cash-flow');
   await page.getByRole('button', { name: '1M', exact: true }).click();
   await page.getByRole('button', { name: /Show transactions: .*Groceries$/ }).click();
-  const heading = page.getByRole('heading', { name: /Transactions:/ });
-  const list = page.locator('div.mt-6', { has: heading });
+  const list = page.getByRole('region', { name: /Transactions:/ });
   await expect(list).toContainText('Current groceries');
   await expect(list).not.toContainText('Previous groceries');
   await expect(list).not.toContainText('Current dining');
